@@ -1,0 +1,53 @@
+.root {
+    /* Soft pink gradient background */
+    -fx-background-color: linear-gradient(to bottom, #ff77b5 0%, #d56fa4 50%, #ffb3d9 100%);
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+
+    /* Optional: Light shadow effect to add depth */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+
+    /* Optional: Add a subtle texture pattern for richness */
+    background-image: url("textures/soft-pattern.png"); /* Replace with your own texture path */
+    -fx-background-position: center;
+    -fx-background-size: cover;
+}
+
+.root::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Light white overlay */
+    z-index: 1;
+}
+
+.mylogin{
+ 
+
+    -fx-border-color: #ff77b5;  
+    -fx-border-width: 20px;
+    -fx-border-radius: 15px;  
+
+    
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+
+.menu-bar {
+  -fx-background-color: #111111;
+}
+
+.label {
+    -fx-font-size: 12px;
+    -fx-text-fill: black;
+}
+
+
+#username{
+   
+}
+
+#pass{
+    
+}
