@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Apane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="Apane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SysUI.controller">
    <children>
       <Rectangle arcHeight="50.0" arcWidth="50.0" height="690.0" layoutX="641.0" layoutY="15.0" opacity="0.29" stroke="BLACK" strokeType="INSIDE" width="434.0" />
       <Label layoutX="719.0" layoutY="221.0" text="Welcome Back!">
@@ -56,7 +56,7 @@
             <Font name="Leelawadee UI" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnreg" layoutX="918.0" layoutY="610.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="51.0" stylesheets="@application.css" text="Register">
+      <Button fx:id="btnreg" layoutX="918.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="17.0" prefWidth="51.0" stylesheets="@application.css" text="Register">
          <font>
             <Font name="Leelawadee UI Bold" size="13.0" />
          </font></Button>

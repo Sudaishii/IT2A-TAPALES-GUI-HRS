@@ -11,6 +11,14 @@
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
 }*/
 
+#PaneReg{
+    
+     -fx-background-color: linear-gradient( to right top,#FCE7C8, #B1C29E);
+
+    
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+    
+}
 
 
 #Apane1{

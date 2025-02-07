@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rasheed/Documents/NetBeansProjects/IT2A-TAPALES-GUI-HRS/src/SysUI/main.fxml</file>
-            <file>file:/C:/Users/Rasheed/Documents/NetBeansProjects/IT2A-TAPALES-GUI-HRS/src/SysUI/application.css</file>
-            <file>file:/C:/Users/Rasheed/Documents/NetBeansProjects/IT2A-TAPALES-GUI-HRS/src/SysUI/login.java</file>
+            <file>file:/C:/Users/kerjan/Desktop/Tapales/IT2A-TAPALES-GUI-HRS/src/SysUI/main.fxml</file>
+            <file>file:/C:/Users/kerjan/Desktop/Tapales/IT2A-TAPALES-GUI-HRS/src/SysUI/login.java</file>
+            <file>file:/C:/Users/kerjan/Desktop/Tapales/IT2A-TAPALES-GUI-HRS/src/SysUI/registration.fxml</file>
+            <file>file:/C:/Users/kerjan/Desktop/Tapales/IT2A-TAPALES-GUI-HRS/src/SysUI/application.css</file>
+            <file>file:/C:/Users/kerjan/Desktop/Tapales/IT2A-TAPALES-GUI-HRS/src/SysUI/controller.java</file>
         </group>
     </open-files>
 </project-private>
