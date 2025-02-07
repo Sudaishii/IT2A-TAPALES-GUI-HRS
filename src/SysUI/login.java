@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,9 @@ public class login extends Application {
        
        String css = this.getClass().getResource("application.css").toExternalForm();
        scene.getStylesheets().add(css);
+       
+        stage.getIcons().add(new Image("imgs/money.png"));
+        stage.setTitle("PayFuse");
        
  
        stage.setResizable(false);
