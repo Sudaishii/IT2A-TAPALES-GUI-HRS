@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="APaneReg" prefHeight="711.0" prefWidth="502.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controller">
+   <children>
+      <Pane fx:id="RegPane" prefHeight="711.0" prefWidth="509.0" style="-fx-background-color: #d4bdac;" stylesheets="@registration.css">
+         <children>
+            <ImageView fitHeight="278.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/wallpaperflare.com_wallpaper.jpg" />
+               </image>
+            </ImageView>
+            <Pane fx:id="panereg" layoutY="226.0" prefHeight="485.0" prefWidth="509.0" style="-fx-background-color: #B1C29E;">
+               <children>
+                  <Label fx:id="label1" layoutX="14.0" layoutY="24.0" prefHeight="89.0" prefWidth="169.0" text="Create">
+                     <font>
+                        <Font name="Dubai Bold" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="69.0" layoutY="80.0" text="your Account">
+                     <font>
+                        <Font name="Dubai Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="147.0" layoutY="142.0" text="Already a User?">
+                     <font>
+                        <Font name="Leelawadee UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="LogIn" layoutX="255.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@registration.css" text="LogIn">
+                     <font>
+                        <Font name="Leelawadee UI Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <TextField alignment="CENTER" layoutX="47.0" layoutY="200.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <TextField alignment="CENTER" layoutX="264.0" layoutY="200.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="47.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-email-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="266.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-username-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="47.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-password-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="266.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-password-30.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblemail" layoutX="130.0" layoutY="254.0" prefHeight="17.0" prefWidth="35.0" stylesheets="@registration.css" text="Email" />
+                  <Label fx:id="lblun" layoutX="342.0" layoutY="254.0" stylesheets="@registration.css" text="Username" />
+                  <Label fx:id="lblpass" layoutX="123.0" layoutY="350.0" stylesheets="@registration.css" text="Password" />
+                  <Label fx:id="lblcpass" layoutX="316.0" layoutY="350.0" stylesheets="@registration.css" text="Confirm Password" />
+                  <Button fx:id="btnSign" layoutX="141.0" layoutY="389.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="228.0" stylesheets="@registration.css" text="Sign Up">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Button>
+                  <PasswordField alignment="CENTER" layoutX="48.0" layoutY="296.0" prefHeight="54.0" prefWidth="200.0" />
+                  <PasswordField alignment="CENTER" layoutX="264.0" layoutY="296.0" prefHeight="54.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -16,21 +16,24 @@
 
 <AnchorPane fx:id="Apane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SysUI.controller">
    <children>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" height="690.0" layoutX="641.0" layoutY="15.0" opacity="0.29" stroke="BLACK" strokeType="INSIDE" width="434.0" />
-      <Label layoutX="719.0" layoutY="221.0" text="Welcome Back!">
+      <Rectangle fx:id="reclog" arcHeight="50.0" arcWidth="50.0" height="690.0" layoutX="625.0" layoutY="15.0" opacity="0.29" stroke="BLACK" strokeType="INSIDE" width="434.0" />
+      <Label fx:id="welcome" layoutX="719.0" layoutY="221.0" stylesheets="@application.css" text="Welcome Back!">
          <font>
             <Font name="Leelawadee UI Bold" size="38.0" />
          </font>
       </Label>
-      <Label layoutX="791.0" layoutY="276.0" text="Please enter your details" />
+      <Label layoutX="787.0" layoutY="276.0" text="Please enter your details">
+         <font>
+            <Font name="Gadugi" size="12.0" />
+         </font></Label>
       <TextField fx:id="UNField" alignment="CENTER" layoutX="742.0" layoutY="339.0" prefHeight="42.0" prefWidth="231.0" promptText="Username" stylesheets="@application.css" />
       <PasswordField fx:id="PassField" alignment="CENTER" layoutX="736.0" layoutY="423.0" prefHeight="42.0" prefWidth="243.0" promptText="Password" stylesheets="@application.css" />
-      <Label alignment="CENTER" layoutX="786.0" layoutY="89.0" text="PayFuse">
+      <Label fx:id="Title" alignment="CENTER" layoutX="786.0" layoutY="89.0" text="PayFuse">
          <font>
             <Font name="SansSerif Italic" size="36.0" />
          </font>
          <textFill>
-            <LinearGradient endX="0.44075829383886256" startX="0.6824644549763033" startY="1.0">
+            <LinearGradient endX="0.44075829383886256" endY="1.0" startX="0.6824644549763033" startY="1.0">
                <stops>
                   <Stop>
                      <color>
@@ -46,7 +49,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="btnlog" layoutX="822.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@application.css" text="LogIn">
+      <Button fx:id="btnlog" layoutX="822.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleButtonAction" stylesheets="@application.css" text="LogIn">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -56,7 +59,7 @@
             <Font name="Leelawadee UI" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnreg" layoutX="918.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="17.0" prefWidth="51.0" stylesheets="@application.css" text="Register">
+      <Button fx:id="btnreg" layoutX="917.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="19.0" prefWidth="58.0" stylesheets="@application.css" text="Register.">
          <font>
             <Font name="Leelawadee UI Bold" size="13.0" />
          </font></Button>
@@ -67,7 +70,7 @@
       </ImageView>
       <Pane prefHeight="720.0" prefWidth="614.0">
          <children>
-            <ImageView fitHeight="727.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="727.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../jars/g.gif" />
                </image>
