@@ -9,12 +9,16 @@
    <children>
       <Pane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <TableView fx:id="lamesa" layoutX="206.0" layoutY="58.0" prefHeight="605.0" prefWidth="687.0">
+            <TableView fx:id="lamesa" layoutX="31.0" layoutY="58.0" prefHeight="605.0" prefWidth="1039.0">
               <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="User_ID" />
-                <TableColumn fx:id="User_Email" prefWidth="244.0" text="User_Email" />
-                  <TableColumn fx:id="Username" prefWidth="166.0" text="Username" />
-                  <TableColumn fx:id="Password" minWidth="0.0" prefWidth="201.0" text="Password" />
+                <TableColumn fx:id="id" prefWidth="47.0" text="User_ID" />
+                <TableColumn fx:id="fname" prefWidth="108.0" text="First Name" />
+                  <TableColumn fx:id="lname" prefWidth="107.0" text="Last Name" />
+                  <TableColumn fx:id="contact" minWidth="0.0" prefWidth="133.0" text="Contact #" />
+                  <TableColumn fx:id="email" minWidth="0.0" prefWidth="187.0" text="Email" />
+                  <TableColumn fx:id="username" minWidth="0.0" prefWidth="151.0" text="Username" />
+                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="145.0" text="Password" />
+                  <TableColumn fx:id="role" minWidth="0.0" prefWidth="213.0" text="Role" />
               </columns>
             </TableView>
          </children>

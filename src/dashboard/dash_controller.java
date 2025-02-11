@@ -1,95 +1,122 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dashboard;
 
+import config.dbConnect;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.DriverManager;
-import java.sql.Statement;
-import config.DBconnector;
-
-
-
-    
-
 public class dash_controller implements Initializable {
-    
-     
-     
-     
 
-    public class users {
-    private int id;
-    private String email;
-    private String Usern;
-    private String pass;
-
-    // Constructor, Getters, and Setters (Important!)
-    public users(int id, String email, String Usern, String pass) {
-        
-        this.id = id;
-        this.email = email;
-        this.email = email;
-        this.pass = pass;
-        
-        
-    }
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getEmail() { return email; }
-    public void setEmail(String name) { this.email = name; }
-    public String getUser() { return Usern; }
-    public void setUser(String un) { this.Usern = un; }
-    public String getPass() { return pass; }
-    public void setPass(String pass) { this.pass = pass; }
-    
-    
-    }
-    
     @FXML
     private TableView<users> lamesa;
-    
+
     @FXML
     private TableColumn<users, Integer> id;
-    @FXML
-    private TableColumn<users, String> User_Email;
-    @FXML
-    private TableColumn<users, String> Username;
-    @FXML
-    private TableColumn<users, String> Password;
-    
-    
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
-        id.setCellValueFactory(new PropertyValueFactory("id"));
-        User_Email.setCellValueFactory(new PropertyValueFactory("User_Email"));
-        Username.setCellValueFactory(new PropertyValueFactory("Username"));
-        Password.setCellValueFactory(new PropertyValueFactory("Password"));
-        
-    }
-    
-        @FXML
-        private void loadUserData() {
-            ObservableList<users> userList = lamesa.getItems();
-            userList.clear(); // Clear previous data
 
-          
+    @FXML
+    private TableColumn<users, String> fname;
+
+    @FXML
+    private TableColumn<users, String> lname;
+
+    @FXML
+    private TableColumn<users, String> contact;
+
+    @FXML
+    private TableColumn<users, String> email;
+
+    @FXML
+    private TableColumn<users, String> username;
+
+    @FXML
+    private TableColumn<users, String> password;
+
+    @FXML
+    private TableColumn<users, String> role;
+
+    private Connection connection = null; // Initialize to null
+
+    ObservableList<users> usersList = FXCollections.observableArrayList();
+
+     @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        id.setCellValueFactory(new PropertyValueFactory<>("Id"));        // Corrected
+        fname.setCellValueFactory(new PropertyValueFactory<>("Fname"));   // Corrected
+        lname.setCellValueFactory(new PropertyValueFactory<>("Fname"));   // Corrected
+        contact.setCellValueFactory(new PropertyValueFactory<>("Contact")); // Corrected
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));   // Corrected
+        username.setCellValueFactory(new PropertyValueFactory<>("Username"));// Corrected
+        password.setCellValueFactory(new PropertyValueFactory<>("Password"));// Corrected
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));    // Corrected
+
+        loadUserData();
+    }
+
+    private void loadUserData() {
+    usersList.clear();
+    dbConnect dbc = new dbConnect();
+    connection = dbc.getConnection(); // Get the connection here!
+
+    if (connection == null) {  // Check for null connection *immediately*
+        System.err.println("Database connection is null. Check dbConnect.");
+        showAlert("Database Error", "Could not connect to the database.");
+        return; // Important: Stop execution if connection is null
+    }
+
+    String query = "SELECT user_id, user_fname, user_lname, contact, user_email, user_name, user_pass, user_role FROM users;";
+
+    try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+         ResultSet resultSet = preparedStatement.executeQuery()) {
+
+      while (resultSet.next()) {
+    users user = new users(
+        resultSet.getInt("user_id"),         
+        resultSet.getString("user_fname"),    // Matches database column
+        resultSet.getString("user_lname"),    // Matches database column
+        resultSet.getString("contact"),       // Matches database column
+        resultSet.getString("user_email"),    // Matches database column
+        resultSet.getString("user_name"), // Matches database column
+        resultSet.getString("user_pass"), // Matches database column
+        resultSet.getString("user_role")      // Matches database column
+    );
+    usersList.add(user);
+}
+
+            
+        lamesa.setItems(usersList); // Set items *after* populating the list
+
+    } catch (SQLException ex) {
+        System.err.println("Database Error: " + ex.getMessage());
+        showAlert("Database Error", "Error loading user data: " + ex.getMessage());
+
+    } finally {
+        if (connection!= null) {
+            try {
+                connection.close(); // Close in a finally block
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-    
+    }
+}
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

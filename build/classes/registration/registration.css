@@ -1,0 +1,123 @@
+#label{
+    
+    
+
+    -fx-background-color: linear-gradient(to bottom, #fce7c810, #fce7c890);
+    -fx-background-radius: 0 0 30 30; 
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0.5, 0, 2);
+    
+    
+    
+}
+
+
+
+#LogIn {
+    
+    -fx-background-color: transparent;
+    -fx-border-color: #CDC2A5;
+    -fx-border-width: 0 0 0 0;
+    -fx-padding: 0 0 0 0;
+    -fx-text-fill: #B17457; 
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+    
+}
+
+#LogIn:hover {
+    -fx-text-fill: white; 
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+#LogIn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+}
+
+#RegPane{
+    
+       -fx-background-radius: 0 0 0 30; 
+       -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.3, 0, 2);
+ 
+}
+    
+#panereg{
+      -fx-background-radius: 50 50 0 30; 
+       -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.3, 0, 2);
+}
+
+.text-field  {
+    
+    -fx-font-style: italic;
+    -fx-text-fill: #1f2220;
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 1 0;
+    -fx-border-color: black;
+    -fx-prompt-text-fill: #111111; 
+    
+    
+}
+
+.password-field{
+     -fx-font-style: italic;
+    -fx-text-fill: #1f2220;
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 1 0;
+    -fx-border-color: black;
+    -fx-prompt-text-fill: #111111; 
+    
+    
+}
+
+
+.text-field:focused {
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #ffe5c2;
+    
+  
+}
+
+.password-field:focused {
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #ffe5c2;
+    
+  
+}
+
+
+.text-field .prompt-text {
+    -fx-text-fill: #a0a0a0;
+    -fx-font-size: 12px;
+}
+
+#lblemail #lblun #lblpass #lblcpass{
+    fx-text-fill: #555;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+#btnSign{
+    
+    -fx-background-color: linear-gradient(to bottom, #ffe5c2, #e6c29a);
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5c3d2e;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+    
+}
+
+#btnSign:pressed {
+    -fx-background-color: #D1B99F; 
+}
+
+#btnSign:disabled {
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -33,12 +34,13 @@ public class login extends Application {
        String css = this.getClass().getResource("application.css").toExternalForm();
        scene.getStylesheets().add(css);
        
-        stage.getIcons().add(new Image("imgs/money.png"));
-        stage.setTitle("PayFuse");
+       stage.getIcons().add(new Image("imgs/money.png"));
+       stage.setTitle("PayFuse");
        
  
        stage.setResizable(false);
        stage.setScene(scene);
+      
        stage.show();
        //d4bdac
     }

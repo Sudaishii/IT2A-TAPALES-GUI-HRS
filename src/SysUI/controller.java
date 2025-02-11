@@ -9,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -48,6 +49,7 @@ public class controller {
     private ImageView image;
     @FXML
     private Rectangle reclog;
+  
     
     
     
@@ -60,7 +62,7 @@ public class controller {
         
        Parent registrationPane = FXMLLoader.load(getClass().getResource("/registration/registration.fxml"));
 
-    // Get the current scene and root pane
+  
     Scene scene = btnreg.getScene(); 
     Pane rootPane = (Pane) scene.getRoot();
 
@@ -73,30 +75,36 @@ public class controller {
     // Create a Timeline for the slide-in animation
     Timeline timeline = new Timeline();
 
-    // Calculate the final position (stop when the registration pane is fully visible)
+ 
     double registrationPaneWidth = registrationPane.prefWidth(-1); // Get the width of the registration pane
     double finalTranslateX = scene.getWidth() - registrationPaneWidth; // Stop at this position
 
-    // Define the animation: Move the registration pane from the right to its final position
+  
     KeyValue keyValue = new KeyValue(registrationPane.translateXProperty(), finalTranslateX, Interpolator.EASE_IN);
-    KeyFrame keyFrame = new KeyFrame(Duration.millis(600), keyValue); // Animation duration: 1 second
+    KeyFrame keyFrame = new KeyFrame(Duration.millis(600), keyValue);
 
-    // Add the keyframe to the timeline
     timeline.getKeyFrames().add(keyFrame);
 
-    // Play the animation
+   
     timeline.play();
 
-    // Optional: Remove the old pane after the animation completes (if needed)
+  
     timeline.setOnFinished(e -> {
-        // Example: Remove the old pane (if needed)
-        // rootPane.getChildren().remove(0); // Remove the first child (old pane)
+      
     });
 }
     
     
+    @FXML
+    private void LogInButton(ActionEvent event) throws IOException {
     
-     
+       Parent root = FXMLLoader.load(getClass().getResource("/dashboard/dashboard.fxml"));
+       Stage stge = (Stage)((Node)event.getSource()).getScene().getWindow();
+       Scene scene = new Scene(root);
+       stge.setScene(scene);
+       stge.show();
+       
+    }   
 }
     
     
