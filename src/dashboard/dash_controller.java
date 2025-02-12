@@ -45,21 +45,21 @@ public class dash_controller implements Initializable {
     @FXML
     private TableColumn<users, String> role;
 
-    private Connection connection = null; // Initialize to null
+    private Connection connection = null; 
 
     ObservableList<users> usersList = FXCollections.observableArrayList();
 
      @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        id.setCellValueFactory(new PropertyValueFactory<>("Id"));        // Corrected
-        fname.setCellValueFactory(new PropertyValueFactory<>("Fname"));   // Corrected
-        lname.setCellValueFactory(new PropertyValueFactory<>("Fname"));   // Corrected
-        contact.setCellValueFactory(new PropertyValueFactory<>("Contact")); // Corrected
-        email.setCellValueFactory(new PropertyValueFactory<>("Email"));   // Corrected
-        username.setCellValueFactory(new PropertyValueFactory<>("Username"));// Corrected
-        password.setCellValueFactory(new PropertyValueFactory<>("Password"));// Corrected
-        role.setCellValueFactory(new PropertyValueFactory<>("Role"));    // Corrected
+        id.setCellValueFactory(new PropertyValueFactory<>("Id"));       
+        fname.setCellValueFactory(new PropertyValueFactory<>("Fname"));  
+        lname.setCellValueFactory(new PropertyValueFactory<>("Lname"));   
+        contact.setCellValueFactory(new PropertyValueFactory<>("Contact")); 
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));   
+        username.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        password.setCellValueFactory(new PropertyValueFactory<>("Password"));
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));    
 
         loadUserData();
     }
@@ -67,12 +67,12 @@ public class dash_controller implements Initializable {
     private void loadUserData() {
     usersList.clear();
     dbConnect dbc = new dbConnect();
-    connection = dbc.getConnection(); // Get the connection here!
+    connection = dbc.getConnection(); 
 
-    if (connection == null) {  // Check for null connection *immediately*
+    if (connection == null) {  
         System.err.println("Database connection is null. Check dbConnect.");
         showAlert("Database Error", "Could not connect to the database.");
-        return; // Important: Stop execution if connection is null
+        return; 
     }
 
     String query = "SELECT user_id, user_fname, user_lname, contact, user_email, user_name, user_pass, user_role FROM users;";
@@ -83,19 +83,19 @@ public class dash_controller implements Initializable {
       while (resultSet.next()) {
     users user = new users(
         resultSet.getInt("user_id"),         
-        resultSet.getString("user_fname"),    // Matches database column
-        resultSet.getString("user_lname"),    // Matches database column
-        resultSet.getString("contact"),       // Matches database column
-        resultSet.getString("user_email"),    // Matches database column
-        resultSet.getString("user_name"), // Matches database column
-        resultSet.getString("user_pass"), // Matches database column
-        resultSet.getString("user_role")      // Matches database column
+        resultSet.getString("user_fname"),    
+        resultSet.getString("user_lname"),    
+        resultSet.getString("contact"),       
+        resultSet.getString("user_email"),    
+        resultSet.getString("user_name"), 
+        resultSet.getString("user_pass"), 
+        resultSet.getString("user_role")      
     );
     usersList.add(user);
 }
 
             
-        lamesa.setItems(usersList); // Set items *after* populating the list
+        lamesa.setItems(usersList); 
 
     } catch (SQLException ex) {
         System.err.println("Database Error: " + ex.getMessage());
@@ -104,7 +104,7 @@ public class dash_controller implements Initializable {
     } finally {
         if (connection!= null) {
             try {
-                connection.close(); // Close in a finally block
+                connection.close(); 
             } catch (SQLException e) {
                 e.printStackTrace();
             }

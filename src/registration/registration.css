@@ -99,8 +99,7 @@
     -fx-font-weight: bold;
 }
 
-#btnSign{
-    
+#btnSign {
     -fx-background-color: linear-gradient(to bottom, #ffe5c2, #e6c29a);
     -fx-background-radius: 25;
     -fx-border-radius: 25;
@@ -109,8 +108,7 @@
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #5c3d2e;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
-    
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2); /* Changed vertical offset to 0 */
 }
 
 #btnSign:pressed {

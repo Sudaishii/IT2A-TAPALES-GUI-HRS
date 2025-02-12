@@ -60,24 +60,23 @@ public class controller {
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         
-       Parent registrationPane = FXMLLoader.load(getClass().getResource("/registration/registration.fxml"));
+   Parent registrationPane = FXMLLoader.load(getClass().getResource("/registration/registration.fxml"));
 
   
     Scene scene = btnreg.getScene(); 
     Pane rootPane = (Pane) scene.getRoot();
 
-    // Set the initial position of the registration pane (off-screen to the right)
-    registrationPane.translateXProperty().set(scene.getWidth()); // Start from the right side
+   
+    registrationPane.translateXProperty().set(scene.getWidth()); 
 
-    // Add the registration pane to the root pane
-    rootPane.getChildren().add(registrationPane);
+       rootPane.getChildren().add(registrationPane);
 
-    // Create a Timeline for the slide-in animation
+ 
     Timeline timeline = new Timeline();
 
  
-    double registrationPaneWidth = registrationPane.prefWidth(-1); // Get the width of the registration pane
-    double finalTranslateX = scene.getWidth() - registrationPaneWidth; // Stop at this position
+    double registrationPaneWidth = registrationPane.prefWidth(-1); 
+    double finalTranslateX = scene.getWidth() - registrationPaneWidth; 
 
   
     KeyValue keyValue = new KeyValue(registrationPane.translateXProperty(), finalTranslateX, Interpolator.EASE_IN);

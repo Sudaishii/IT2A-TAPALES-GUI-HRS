@@ -21,9 +21,6 @@
             </ImageView>
             <Pane fx:id="panereg" layoutY="226.0" prefHeight="485.0" prefWidth="509.0" style="-fx-background-color: #B1C29E;">
                <children>
-                  <PasswordField alignment="CENTER" layoutX="49.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" />
-                  <PasswordField alignment="CENTER" layoutX="264.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" />
-                  <PasswordField alignment="CENTER" layoutX="264.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" />
                   <Label fx:id="label1" layoutX="14.0" layoutY="24.0" prefHeight="89.0" prefWidth="169.0" text="Create">
                      <font>
                         <Font name="Dubai Bold" size="50.0" />
@@ -44,8 +41,8 @@
                         <Font name="Leelawadee UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <TextField alignment="CENTER" layoutX="47.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
-                  <TextField alignment="CENTER" layoutX="264.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <TextField fx:id="fname" alignment="CENTER" layoutX="47.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <TextField fx:id="lname" alignment="CENTER" layoutX="264.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
                   <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="443.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/icons8-email-30.png" />
@@ -70,14 +67,17 @@
                   <Label fx:id="lblun" layoutX="335.0" layoutY="221.0" stylesheets="@registration.css" text="Last Name" />
                   <Label fx:id="lblpass" layoutX="115.0" layoutY="296.0" stylesheets="@registration.css" text="Contact #" />
                   <Label fx:id="lblcpass" layoutX="349.0" layoutY="296.0" stylesheets="@registration.css" text="Email" />
-                  <Button fx:id="btnSign" layoutX="141.0" layoutY="410.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="228.0" stylesheets="@registration.css" text="Sign Up">
+                  <Button fx:id="btnSign" layoutX="141.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#RegisterClick" prefHeight="34.0" prefWidth="228.0" stylesheets="@registration.css" text="Sign Up">
                      <font>
                         <Font name="System Bold Italic" size="13.0" />
                      </font>
                   </Button>
-                  <PasswordField alignment="CENTER" layoutX="49.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" />
                   <Label fx:id="lblcpass11" layoutX="339.0" layoutY="373.0" stylesheets="@registration.css" text="Password" />
                   <Label fx:id="lblpass1" layoutX="114.0" layoutY="373.0" stylesheets="@registration.css" text="Username" />
+                  <TextField fx:id="contactF" alignment="CENTER" layoutX="49.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <TextField fx:id="emailF" alignment="CENTER" layoutX="269.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <TextField fx:id="usernameF" alignment="CENTER" layoutX="41.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
+                  <PasswordField layoutX="255.0" layoutY="331.0" prefHeight="40.0" prefWidth="228.0" />
                </children>
             </Pane>
          </children>

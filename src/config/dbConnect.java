@@ -12,28 +12,28 @@ public class dbConnect {
 
     public dbConnect() {
         try {
-            String url = "jdbc:mysql://localhost:3306/sys_db"; // Put URL, username, password in separate variables for clarity
+            String url = "jdbc:mysql://localhost:3306/sys_db"; 
             String user = "root";
             String password = "";
 
             connect = DriverManager.getConnection(url, user, password);
             System.out.println("Database connected successfully!");
         } catch (SQLException e) {
-            System.err.println("Database connection failed: " + e.getMessage()); // Use System.err for errors
-            connect = null; // Explicitly set connect to null on failure
+            System.err.println("Database connection failed: " + e.getMessage()); 
+            connect = null; 
         }
     }
 
     public Connection getConnection() {
-        return connect; // Now safe to return, might be null
+        return connect; 
     }
 
     public ResultSet getData(String sql) throws SQLException {
         if (connect == null) {
-            throw new SQLException("Connection is null. Database may not be connected."); // Throw exception early
+            throw new SQLException("Connection is null. Database may not be connected."); 
         }
-        try (Statement state = connect.createStatement()) { // Try-with-resources for Statement
+        try (Statement state = connect.createStatement()) { 
             return state.executeQuery(sql);
-        } // Statement is automatically closed here
+        } 
     }
 }

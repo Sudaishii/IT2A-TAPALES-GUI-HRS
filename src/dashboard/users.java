@@ -19,7 +19,7 @@ public class users {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.role = role; // Initialize role
+        this.role = role; 
     }
 
     public int getId() {
