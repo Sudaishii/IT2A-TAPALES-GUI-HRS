@@ -9,7 +9,7 @@
    <children>
       <Pane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <TableView fx:id="lamesa" layoutX="31.0" layoutY="58.0" prefHeight="605.0" prefWidth="1039.0">
+            <TableView fx:id="lamesa" layoutX="355.0" layoutY="83.0" prefHeight="555.0" prefWidth="554.0">
               <columns>
                 <TableColumn fx:id="id" prefWidth="47.0" text="User_ID" />
                 <TableColumn fx:id="fname" prefWidth="108.0" text="First Name" />

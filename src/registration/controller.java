@@ -8,6 +8,7 @@ package registration;
 import config.dbConnect;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 /**
  *
  * @author Rasheed
@@ -148,27 +150,20 @@ public class controller {
         }
         
         
-
-        
     }
 
-   
-
+    
+        private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashedBytes = md.digest(password.getBytes());
+            return Base64.getEncoder().encodeToString(hashedBytes);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Error hashing password", e);
+        }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }
     
     
     private boolean validateInputs(String fname, String lname, String contact, String email, String username, String password) {
@@ -182,8 +177,8 @@ public class controller {
             return false;
         }
 
-        if (!contact.matches("\\d{10,12}")) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Contact number must be 10 to 12 digits long.");
+        if (!contact.matches("\\d{11}")) {
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Contact number must be 11 digits long.");
             return false;
         }
 

@@ -43,26 +43,6 @@
                   </Button>
                   <TextField fx:id="fname" alignment="CENTER" layoutX="47.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
                   <TextField fx:id="lname" alignment="CENTER" layoutX="264.0" layoutY="165.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
-                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="443.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/icons8-email-30.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="226.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/icons8-username-50.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="226.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/icons8-password-30.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="443.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/icons8-password-30.png" />
-                     </image>
-                  </ImageView>
                   <Label fx:id="lblemail" layoutX="116.0" layoutY="221.0" prefHeight="17.0" prefWidth="66.0" stylesheets="@registration.css" text="First Name" />
                   <Label fx:id="lblun" layoutX="335.0" layoutY="221.0" stylesheets="@registration.css" text="Last Name" />
                   <Label fx:id="lblpass" layoutX="115.0" layoutY="296.0" stylesheets="@registration.css" text="Contact #" />
@@ -77,7 +57,37 @@
                   <TextField fx:id="contactF" alignment="CENTER" layoutX="49.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
                   <TextField fx:id="emailF" alignment="CENTER" layoutX="269.0" layoutY="238.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
                   <TextField fx:id="usernameF" alignment="CENTER" layoutX="41.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" stylesheets="@registration.css" />
-                  <PasswordField layoutX="255.0" layoutY="331.0" prefHeight="40.0" prefWidth="228.0" />
+                  <PasswordField fx:id="passwordF" layoutX="269.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" />
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="469.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-password-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="20.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-password-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="20.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-username-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="469.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-email-30.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="20.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-name-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="469.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-name-50.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

@@ -72,7 +72,7 @@
          <children>
             <ImageView fx:id="image" fitHeight="727.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../jars/g.gif" />
+                  <Image url="@../imgs/g.gif" />
                </image>
             </ImageView>
          </children>

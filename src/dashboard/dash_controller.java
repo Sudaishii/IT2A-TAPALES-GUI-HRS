@@ -49,7 +49,7 @@ public class dash_controller implements Initializable {
 
     ObservableList<users> usersList = FXCollections.observableArrayList();
 
-     @Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));       
