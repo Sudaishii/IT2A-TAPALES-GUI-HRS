@@ -1,4 +1,4 @@
-#label{
+/*#label{
     
     
 
@@ -8,7 +8,7 @@
     
     
     
-}
+}*/
 
 
 
@@ -57,6 +57,10 @@
     -fx-prompt-text-fill: #111111; 
     
     
+}
+
+#tbtn{
+    -fx-background-color: transparent;
 }
 
 .password-field{
@@ -118,4 +122,60 @@
 #btnSign:disabled {
     -fx-opacity: 0.6;
     -fx-cursor: default;
+}
+
+.alert {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+    -fx-padding: 20px;
+}
+
+.alert .header-panel {
+    -fx-background-color: linear-gradient(to bottom, #6a11cb, #2575fc);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-background-radius: 10px 10px 0 0;
+    -fx-padding: 15px;
+}
+
+.alert .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.alert .content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-padding: 15px 0;
+}
+
+.alert .button-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 0 0 0;
+}
+
+.alert .button {
+    -fx-background-color: linear-gradient(to bottom, #6a11cb, #2575fc);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.alert .button:hover {
+    -fx-background-color: linear-gradient(to bottom, #2575fc, #6a11cb);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 0);
+}
+
+.alert .button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #1b5fd9, #4a00e0);
 }

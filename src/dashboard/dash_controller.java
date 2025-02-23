@@ -1,5 +1,6 @@
 package dashboard;
 
+import config.config;
 import config.dbConnect;
 import java.net.URL;
 import java.sql.Connection;
@@ -15,102 +16,90 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.shape.Rectangle;
+
 
 public class dash_controller implements Initializable {
-
+    
     @FXML
-    private TableView<users> lamesa;
-
+    private TableView<employees> empTable;
+    
+   
+    
     @FXML
-    private TableColumn<users, Integer> id;
-
+    private Rectangle header;
     @FXML
-    private TableColumn<users, String> fname;
-
+    private Rectangle KPI_rec1;
     @FXML
-    private TableColumn<users, String> lname;
-
+    private Rectangle KPI_rec2s;
     @FXML
-    private TableColumn<users, String> contact;
-
+    private Rectangle KPI_rec3;
+    
     @FXML
-    private TableColumn<users, String> email;
-
+    private TableColumn<employees, Integer> id;
+    
     @FXML
-    private TableColumn<users, String> username;
-
+    private TableColumn<employees, String> fname;
+    
     @FXML
-    private TableColumn<users, String> password;
-
+    private TableColumn<employees, String> lname;
+    
     @FXML
-    private TableColumn<users, String> role;
-
-    private Connection connection = null; 
-
-    ObservableList<users> usersList = FXCollections.observableArrayList();
+    private TableColumn<employees, String> dept;
+    
+    private dbConnect db = new dbConnect();
+    private ObservableList<employees> empList;
+   
+    
+    
+    
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        
+        empList = FXCollections.observableArrayList();
 
-        id.setCellValueFactory(new PropertyValueFactory<>("Id"));       
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));       
         fname.setCellValueFactory(new PropertyValueFactory<>("Fname"));  
         lname.setCellValueFactory(new PropertyValueFactory<>("Lname"));   
-        contact.setCellValueFactory(new PropertyValueFactory<>("Contact")); 
-        email.setCellValueFactory(new PropertyValueFactory<>("Email"));   
-        username.setCellValueFactory(new PropertyValueFactory<>("Username"));
-        password.setCellValueFactory(new PropertyValueFactory<>("Password"));
-        role.setCellValueFactory(new PropertyValueFactory<>("Role"));    
+        dept.setCellValueFactory(new PropertyValueFactory<>("Dept")); 
+        
+   
 
-        loadUserData();
+        loadDataFromDatabase();
     }
 
-    private void loadUserData() {
-    usersList.clear();
-    dbConnect dbc = new dbConnect();
-    connection = dbc.getConnection(); 
-
-    if (connection == null) {  
-        System.err.println("Database connection is null. Check dbConnect.");
-        showAlert("Database Error", "Could not connect to the database.");
-        return; 
+     private void loadDataFromDatabase() {
+         if (db == null) {
+        System.out.println("Database connection is NULL");
+        return;
     }
-
-    String query = "SELECT user_id, user_fname, user_lname, contact, user_email, user_name, user_pass, user_role FROM users;";
-
-    try (PreparedStatement preparedStatement = connection.prepareStatement(query);
-         ResultSet resultSet = preparedStatement.executeQuery()) {
-
-      while (resultSet.next()) {
-    users user = new users(
-        resultSet.getInt("user_id"),         
-        resultSet.getString("user_fname"),    
-        resultSet.getString("user_lname"),    
-        resultSet.getString("contact"),       
-        resultSet.getString("user_email"),    
-        resultSet.getString("user_name"), 
-        resultSet.getString("user_pass"), 
-        resultSet.getString("user_role")      
-    );
-    usersList.add(user);
-}
-
-            
-        lamesa.setItems(usersList); 
-
-    } catch (SQLException ex) {
-        System.err.println("Database Error: " + ex.getMessage());
-        showAlert("Database Error", "Error loading user data: " + ex.getMessage());
-
-    } finally {
-        if (connection!= null) {
-            try {
-                connection.close(); 
-            } catch (SQLException e) {
-                e.printStackTrace();
+        String query = "SELECT emp_id, emp_fname, emp_lname, emp_dept FROM employee";
+        try {
+            ResultSet rs = db.getData(query);
+            if (rs == null) {
+                System.out.println("ResultSet is null");
+                return;
             }
+
+            while (rs.next()) {
+                int id = rs.getInt("emp_id");
+                String fname = rs.getString("emp_fname");
+                String lname = rs.getString("emp_lname");
+                String dept = rs.getString("emp_dept");
+                
+
+                empList.add(new employees(id, fname, lname, dept));
+            }
+
+            empTable.setItems(empList);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
-}
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

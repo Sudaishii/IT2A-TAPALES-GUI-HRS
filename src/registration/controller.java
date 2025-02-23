@@ -5,6 +5,7 @@
  */
 package registration;
 
+import config.config;
 import config.dbConnect;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -31,7 +32,18 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 /**
  *
  * @author Rasheed
@@ -47,26 +59,13 @@ public class controller {
     @FXML
     private Pane panereg;
     @FXML
-    private Label lblemail;
-    @FXML
-    private Label lblun;
-    @FXML
-    private Label lblpass;
-    @FXML
-    private Label lblcpass;
-    @FXML
     private Pane RegPane;
-    @FXML
     private TextField fname;
-    @FXML
     private TextField lname;
     @FXML
     private Button btnSign;
     @FXML
-    private Label lblcpass11;
-    @FXML
     private Label lblpass1;
-    @FXML
     private TextField contactF;
     @FXML
     private TextField emailF;
@@ -75,10 +74,17 @@ public class controller {
     @FXML
     private PasswordField passwordF;
    
-   
- dbConnect db = new dbConnect();
     
-
+    dbConnect db = new dbConnect();
+    @FXML
+    private Label lblpass11;
+    @FXML
+    private Label lblpass111;
+    private Image imageOn;
+    private Image imageOff;
+    
+    
+    
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         
@@ -105,54 +111,58 @@ public class controller {
     timeline.setOnFinished(e -> rootPane.getChildren().remove(registrationPane));
         
     }
+    
+    config con = new config();
 
     @FXML
     private void RegisterClick(javafx.scene.input.MouseEvent event) {
         
-         String firstname = fname.getText().trim();
-        String lastname = lname.getText().trim();
-        String email = emailF.getText().trim();
-        String contact = contactF.getText().trim();
         String username = usernameF.getText().trim();
+        String email = emailF.getText().trim();
         String password = passwordF.getText().trim();
         
         
-        if (!validateInputs(firstname, lastname, contact, email, username, password)) {
+        if (!validateInputs(email, username, password)) {
             return;
         }
 
-        try {
-            if (isDuplicate("user_email", email)) {
-                showAlert(Alert.AlertType.ERROR, "Duplicate Email", "This email is already registered.");
-                return;
-            }
+            try {
+        // List to collect error messages
+        List<String> errors = new ArrayList<>();
 
-            if (isDuplicate("user_name", username)) {
-                showAlert(Alert.AlertType.ERROR, "Duplicate Username", "This username is already taken.");
-                return;
-            }
-
-            String sql = "INSERT INTO users (user_fname, user_lname, contact, user_email, user_name, user_pass, user_role) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement pst = db.getConnection().prepareStatement(sql)) {
-                pst.setString(1, firstname);
-                pst.setString(2, lastname);
-                pst.setString(3, contact);
-                pst.setString(4, email);
-                pst.setString(5, username);
-                pst.setString(6, password);
-                pst.setString(7, "Newly Registered");  
-                pst.executeUpdate();
-                showAlert(Alert.AlertType.INFORMATION, "Registration Successful", "You have successfully registered!");
-                clearFields();
-            }
-        } catch (SQLException ex) {
-            showAlert(Alert.AlertType.ERROR, "Database Error", "An error occurred: " + ex.getMessage());
+       
+        if (isDuplicate("user_email", email)) {
+            errors.add("This email is already registered.");
         }
-        
-        
+
+     
+        if (isDuplicate("user_name", username)) {
+            errors.add("This username is already taken.");
+        }
+
+  
+        if (!errors.isEmpty()) {
+            String errorMessage = String.join("\n", errors); // Combine errors into a single message
+            con.showAlert(Alert.AlertType.ERROR, "Registration Error", errorMessage);
+            return; 
+        }
+
+       
+        String sql = "INSERT INTO users (user_email, user_name, user_pass, status) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pst = db.getConnection().prepareStatement(sql)) {
+            pst.setString(1, email);
+            pst.setString(2, username);
+            pst.setString(3, password);
+            pst.setString(4, "Newly Registered");
+            pst.executeUpdate();
+            con.showAlert(Alert.AlertType.INFORMATION, "Registration Successful", "You have successfully registered!");
+            clearFields();
+        }
+    } catch (SQLException ex) {
+        con.showAlert(Alert.AlertType.ERROR, "Database Error", "An error occurred: " + ex.getMessage());
     }
 
-    
+    }
         private String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -166,30 +176,28 @@ public class controller {
     }
     
     
-    private boolean validateInputs(String fname, String lname, String contact, String email, String username, String password) {
-        if (fname.isEmpty() || lname.isEmpty() || contact.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "All fields except middle name are required.");
+    private boolean validateInputs(String email, String username, String password) {
+        String errorMessage = null;
+
+        if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            errorMessage = "All fields are required.";
+        } else if (password.length() < 8) {
+            errorMessage = "Password must be at least 8 characters long.";
+            
+        } 
+        
+        else if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) { 
+            System.out.println("Email being checked: " + email);
+            errorMessage = "Please enter a valid email address.";
+        }
+
+        if (errorMessage != null) {
+            con.showAlert(Alert.AlertType.ERROR, "Validation Error", errorMessage); 
             return false;
         }
 
-        if (password.length() < 8) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Password must be at least 8 characters long.");
-            return false;
-        }
-
-        if (!contact.matches("\\d{11}")) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Contact number must be 11 digits long.");
-            return false;
-        }
-
-        if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Please enter a valid email address.");
-            return false;
-        }
-
-        return true;
-    }
-
+        return true; 
+}
     private boolean isDuplicate(String column, String value) throws SQLException {
       
         
@@ -200,24 +208,21 @@ public class controller {
             return rs.next();
         }
     }
+    
+ 
+   
 
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+   
+   
 
     private void clearFields() {
-        fname.clear();
-        lname.clear();
+     
         emailF.clear();
-        contactF.clear();
         passwordF.clear();
         usernameF.clear();
         
     }
+
 
  
     

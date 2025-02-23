@@ -5,11 +5,23 @@
  */
 package SysUI;
 
+import java.awt.Color;
+import java.awt.Paint;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,9 +35,13 @@ public class login extends Application {
                
             launch(args);
     }
+        
+    
 
     @Override
     public void start(Stage stage) throws Exception {
+        
+       
         
        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
        Scene scene = new Scene(root);
@@ -44,5 +60,7 @@ public class login extends Application {
        stage.show();
        //d4bdac
     }
+    
+    
     
 }

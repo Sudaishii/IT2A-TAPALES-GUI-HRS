@@ -1,27 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.dash_controller">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #fce7c8;" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.dash_controller">
    <children>
-      <Pane prefHeight="720.0" prefWidth="1080.0">
-         <children>
-            <TableView fx:id="lamesa" layoutX="355.0" layoutY="83.0" prefHeight="555.0" prefWidth="554.0">
-              <columns>
-                <TableColumn fx:id="id" prefWidth="47.0" text="User_ID" />
-                <TableColumn fx:id="fname" prefWidth="108.0" text="First Name" />
-                  <TableColumn fx:id="lname" prefWidth="107.0" text="Last Name" />
-                  <TableColumn fx:id="contact" minWidth="0.0" prefWidth="133.0" text="Contact #" />
-                  <TableColumn fx:id="email" minWidth="0.0" prefWidth="187.0" text="Email" />
-                  <TableColumn fx:id="username" minWidth="0.0" prefWidth="151.0" text="Username" />
-                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="145.0" text="Password" />
-                  <TableColumn fx:id="role" minWidth="0.0" prefWidth="213.0" text="Role" />
-              </columns>
-            </TableView>
-         </children>
-      </Pane>
+      <BorderPane layoutX="8.0" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="80.0" prefWidth="1077.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle fx:id="tangle" fill="#b1c29e" height="43.0" layoutX="-9.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1089.0" />
+                  <Label layoutX="58.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Pay">
+                     <font>
+                        <Font name="Palatino Linotype" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="44.0" fitWidth="53.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8-money-100.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="93.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Fuse">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="796.0" layoutY="5.0" prefHeight="34.0" prefWidth="270.0" text="Human Resource Department">
+                     <font>
+                        <Font name="Palatino Linotype" size="20.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="header" fill="WHITE" height="40.0" layoutY="42.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1080.0" />
+                  <ComboBox layoutX="762.0" layoutY="50.0" prefHeight="25.0" prefWidth="304.0" />
+                  <Label layoutX="58.0" layoutY="50.0" prefHeight="25.0" prefWidth="162.0" text="MENU">
+                     <font>
+                        <Font name="Verdana" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/Menu.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane prefHeight="439.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle fx:id="KPI_rec2" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="422.0" layoutX="7.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="321.0" />
+                  <TableView fx:id="empTable" layoutX="14.0" layoutY="20.0" prefHeight="406.0" prefWidth="307.0">
+                    <columns>
+                      <TableColumn fx:id="id" prefWidth="76.0" text="Employee ID" />
+                      <TableColumn fx:id="fname" prefWidth="74.0" text="First Name" />
+                        <TableColumn fx:id="lname" prefWidth="75.0" text="Last Name" />
+                        <TableColumn fx:id="dept" text="Department" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </right>
+         <bottom>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle fx:id="KPI_rec3" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="187.0" layoutX="210.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="861.0" />
+                  <TableView layoutX="223.0" layoutY="14.0" prefHeight="172.0" prefWidth="838.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Report ID" />
+                      <TableColumn prefWidth="75.0" text="Employee ID" />
+                        <TableColumn prefWidth="75.0" text="Month" />
+                        <TableColumn prefWidth="75.0" text="Year" />
+                        <TableColumn prefWidth="100.0" text="Total Deduction" />
+                        <TableColumn prefWidth="100.0" text="Overtime Pay" />
+                        <TableColumn prefWidth="100.0" text="Net Pay" />
+                        <TableColumn prefWidth="100.0" text="Status" />
+                        <TableColumn prefWidth="136.0" text="Date Generated" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Rectangle fx:id="KPI_rec" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="420.0" layoutX="13.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="519.0" />
+                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="132.0" layoutX="62.0" layoutY="37.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="185.0" />
+                        <ImageView fitHeight="73.0" fitWidth="84.0" layoutX="72.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/multiple-users-1.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="74.0" layoutY="133.0" prefHeight="25.0" prefWidth="162.0" text="Active Employees">
+                           <font>
+                              <Font name="Palatino Linotype" size="20.0" />
+                           </font>
+                        </Label>
+                        <LineChart layoutX="14.0" layoutY="169.0" prefHeight="261.0" prefWidth="516.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="132.0" layoutX="300.0" layoutY="37.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="185.0" />
+                        <ImageView fitHeight="73.0" fitWidth="84.0" layoutX="310.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/multiple-users-1.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="312.0" layoutY="133.0" prefHeight="25.0" prefWidth="162.0" text="Active Employees">
+                           <font>
+                              <Font name="Palatino Linotype" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane prefHeight="476.0" prefWidth="200.0" style="-fx-background-color: skyblue;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutY="-1.0" prefHeight="440.0" prefWidth="199.0">
+                     <children>
+                        <ButtonBar prefHeight="42.0" prefWidth="199.0" />
+                        <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Dashboard" />
+                        <Button layoutX="10.0" layoutY="90.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Manage Employees" />
+                        <Button layoutX="10.0" layoutY="146.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Import Daily Time Records" />
+                        <Button layoutX="10.0" layoutY="202.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Reports" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 
 package SysUI;
 
+import config.config;
 import config.dbConnect;
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -68,7 +69,7 @@ public class controller {
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         
-   Parent registrationPane = FXMLLoader.load(getClass().getResource("/registration/registration.fxml"));
+    Parent registrationPane = FXMLLoader.load(getClass().getResource("/registration/registration.fxml"));
 
   
     Scene scene = btnreg.getScene(); 
@@ -100,7 +101,7 @@ public class controller {
       
     });
 }
-    
+    config con = new config();
     
     @FXML
     private void LogInButton(ActionEvent event) throws IOException, Exception {
@@ -108,71 +109,61 @@ public class controller {
         String username = UNField.getText().trim();
         String password = PassField.getText().trim();
 
-       
+        if (username.isEmpty() || password.isEmpty()) {
+            con.showAlert(Alert.AlertType.ERROR, "Validation Error", "Username and password cannot be empty.");
+            return;
+        }
 
-       
-
-               if (username.isEmpty() || password.isEmpty()) {
-                    showAlert(Alert.AlertType.ERROR, "Validation Error", "Username and password cannot be empty.");
-                    
-                }
-
-                try {
-                    String role = authenticateUser(username, password);
-                    if (role != null) {
-                        showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome back!");
-
-                        // Cater first for the admin
-                        if (role.equalsIgnoreCase("admin")) {  // Simplified condition
-                            switchScene(getClass(), event, "/dashboard/dashboard_reference.fxml");
-                        } else { 
-//                            showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome back!");
-//                            switchScene(getClass(), event, "/dashboard/dash_controller.fxml"); // Default to user dashboard
-                          //  showAlert(Alert.AlertType.WARNING, "Role Information", "You are logged in as a " + role + ".  This is the default user view.");
-                          //  switchScene(getClass(), event, "/fxml/UserDashboard.fxml"); // Redirect to user dashboard
-                        }
-                    } else {
-                        showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
-                    }
-                } catch (SQLException ex) {
-                  
-                } 
-                   
+        try {  // The try-catch is BACK!  This is essential.
+            String role = authenticateUser(username, password);
+            if (role != null) {
+            
                 
-   
-    }          
+
+                if (role.equalsIgnoreCase("HR_Admin")) {
+                    
+                    con.showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome back!");
+                    con.showAlert(Alert.AlertType.INFORMATION, "Redirecting...", "You are logged in as a " + role + ".  Redirecting to your dashboard.");
+                    con.switchScene(getClass(), event, "/dashboard/dashboard.fxml");
+                    
+                } 
+               
+                else if(role.equalsIgnoreCase("Employee")){
+                    con.showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome back!");
+                    con.showAlert(Alert.AlertType.INFORMATION, "Redirecting...", "You are logged in as a " + role + ".  Redirecting to your dashboard.");
+                    con.switchScene(getClass(), event, "/dashboard/employees/employee_dashboard.fxml");
+           
+                }
+           
+
+            } else {
+                con.showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); 
+            con.showAlert(Alert.AlertType.ERROR, "Database Error", "An error occurred during login. Please try again later.");
+        }
+            
+    }
+              
     
-            private String authenticateUser(String username, String password) throws SQLException {
-        String sql = "SELECT * FROM users WHERE user_name = ? AND user_pass = ?";
+        private String authenticateUser(String username, String password) throws SQLException {
+        String sql = "SELECT r.role_name FROM users u INNER JOIN roles r ON u.role_id = r.role_id WHERE u.user_name = ? AND u.user_pass = ?"; 
         try (PreparedStatement pst = db.getConnection().prepareStatement(sql)) {
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                return rs.getString("user_role");  // Return user role if authentication is successful
+                return rs.getString("role_name");
             }
         }
         return null;
     }
 
-    // Utility method to show alert messages
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+   
+   
 
-    // Method to switch scenes
-    public void switchScene(Class<?> clazz, Event evt, String targetFXML) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(targetFXML));  
-        Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.centerOnScreen();
-        stage.show();
-        
-    }
+  
 
 
 //    // Method to center the stage on the screen

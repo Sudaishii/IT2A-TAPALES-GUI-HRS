@@ -7,8 +7,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,11 +15,12 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #fce7c8;" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.dash_controller">
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
    <children>
-      <BorderPane layoutX="8.0" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="720.0" prefWidth="1080.0">
          <top>
-            <AnchorPane prefHeight="80.0" prefWidth="1077.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="80.0" prefWidth="1077.0" stylesheets="@../dashboard.css" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle fx:id="tangle" fill="#b1c29e" height="43.0" layoutX="-9.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1089.0" />
                   <Label layoutX="58.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Pay">
@@ -31,7 +30,7 @@
                   </Label>
                   <ImageView fitHeight="44.0" fitWidth="53.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/icons8-money-100.png" />
+                        <Image url="@../../imgs/icons8-money-100.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="93.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Fuse">
@@ -39,7 +38,7 @@
                         <Font name="Palatino Linotype Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="796.0" layoutY="5.0" prefHeight="34.0" prefWidth="270.0" text="Human Resource Department">
+                  <Label layoutX="868.0" layoutY="5.0" prefHeight="34.0" prefWidth="198.0" text="Employee Dashboard">
                      <font>
                         <Font name="Palatino Linotype" size="20.0" />
                      </font>
@@ -53,7 +52,7 @@
                   </Label>
                   <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/Menu.png" />
+                        <Image url="@../../imgs/Menu.png" />
                      </image>
                   </ImageView>
                </children>
@@ -63,14 +62,6 @@
             <AnchorPane prefHeight="439.0" prefWidth="335.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle fx:id="KPI_rec2" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="422.0" layoutX="7.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="321.0" />
-                  <TableView fx:id="empTable" layoutX="14.0" layoutY="20.0" prefHeight="406.0" prefWidth="307.0">
-                    <columns>
-                      <TableColumn fx:id="id" prefWidth="76.0" text="Employee ID" />
-                      <TableColumn fx:id="fname" prefWidth="74.0" text="First Name" />
-                        <TableColumn fx:id="lname" prefWidth="75.0" text="Last Name" />
-                        <TableColumn fx:id="dept" text="Department" />
-                    </columns>
-                  </TableView>
                </children>
             </AnchorPane>
          </right>
@@ -78,19 +69,6 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle fx:id="KPI_rec3" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="187.0" layoutX="210.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="861.0" />
-                  <TableView layoutX="223.0" layoutY="14.0" prefHeight="172.0" prefWidth="838.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Report ID" />
-                      <TableColumn prefWidth="75.0" text="Employee ID" />
-                        <TableColumn prefWidth="75.0" text="Month" />
-                        <TableColumn prefWidth="75.0" text="Year" />
-                        <TableColumn prefWidth="100.0" text="Total Deduction" />
-                        <TableColumn prefWidth="100.0" text="Overtime Pay" />
-                        <TableColumn prefWidth="100.0" text="Net Pay" />
-                        <TableColumn prefWidth="100.0" text="Status" />
-                        <TableColumn prefWidth="136.0" text="Date Generated" />
-                    </columns>
-                  </TableView>
                </children>
             </AnchorPane>
          </bottom>
@@ -103,26 +81,26 @@
                         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="132.0" layoutX="62.0" layoutY="37.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="185.0" />
                         <ImageView fitHeight="73.0" fitWidth="84.0" layoutX="72.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/multiple-users-1.png" />
+                              <Image url="@../../imgs/multiple-users-1.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="74.0" layoutY="133.0" prefHeight="25.0" prefWidth="162.0" text="Active Employees">
+                        <Label layoutX="110.0" layoutY="133.0" prefHeight="26.0" prefWidth="90.0" text="Absences">
                            <font>
                               <Font name="Palatino Linotype" size="20.0" />
                            </font>
                         </Label>
                         <LineChart layoutX="14.0" layoutY="169.0" prefHeight="261.0" prefWidth="516.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
                         </LineChart>
                         <Rectangle arcHeight="30.0" arcWidth="30.0" fill="DODGERBLUE" height="132.0" layoutX="300.0" layoutY="37.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="185.0" />
                         <ImageView fitHeight="73.0" fitWidth="84.0" layoutX="310.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/multiple-users-1.png" />
+                              <Image url="@../../imgs/multiple-users-1.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="312.0" layoutY="133.0" prefHeight="25.0" prefWidth="162.0" text="Active Employees">

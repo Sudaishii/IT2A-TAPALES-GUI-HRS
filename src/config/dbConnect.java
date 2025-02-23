@@ -2,6 +2,7 @@ package config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,12 +29,27 @@ public class dbConnect {
         return connect; 
     }
 
-    public ResultSet getData(String sql) throws SQLException {
-        if (connect == null) {
-            throw new SQLException("Connection is null. Database may not be connected."); 
+    public int insertData(String sql){
+            int result;
+            try{
+                PreparedStatement pst = connect.prepareStatement(sql);
+                pst.executeUpdate();
+                System.out.println("Inserted Successfully!");
+                pst.close();
+                result =1;
+            }catch(SQLException ex){
+                System.out.println("Connection Error: "+ex);
+                result =0;
+            }
+            return result;
         }
-        try (Statement state = connect.createStatement()) { 
-            return state.executeQuery(sql);
-        } 
-    }
+        
+        //Function to retrieve data
+        public ResultSet getData(String sql) throws SQLException{
+            Statement stmt = connect.createStatement();
+            ResultSet rst = stmt.executeQuery(sql);
+            return rst;
+        }
+           
+       
 }
