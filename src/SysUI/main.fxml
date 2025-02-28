@@ -40,6 +40,11 @@
                         <Color red="0.9882352948188782" green="0.9058823585510254" blue="0.7843137383460999" />
                      </color>
                   </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="0.6941176652908325" green="0.7607843279838562" blue="0.6196078658103943" opacity="0.6600000262260437" />
+                     </color>
+                  </Stop>
                   <Stop offset="1.0">
                      <color>
                         <Color red="0.6941176652908325" green="0.7607843279838562" blue="0.6196078658103943" opacity="0.6600000262260437" />
@@ -49,7 +54,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="btnlog" layoutX="822.0" layoutY="490.0" mnemonicParsing="false" onAction="#LogInButton" stylesheets="@application.css" text="LogIn">
+      <Button fx:id="btnlog" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#LogInButton" stylesheets="@application.css" text="LogIn">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

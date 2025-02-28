@@ -62,6 +62,10 @@ public class controller {
     
     
     dbConnect db = new dbConnect();
+    @FXML
+    private Label errorUnLabel;
+    @FXML
+    private Label errorPassLabel;
     
    
    
