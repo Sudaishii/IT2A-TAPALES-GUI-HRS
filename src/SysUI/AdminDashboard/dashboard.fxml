@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #fce7c8;" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.dash_controller">
+   <children>
+      <BorderPane layoutX="8.0" prefHeight="720.0" prefWidth="1080.0" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="80.0" prefWidth="1077.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle fx:id="tangle" fill="#7c865f" height="43.0" layoutX="-9.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1089.0" />
+                  <Label layoutX="58.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Pay" textFill="#2d2d2d">
+                     <font>
+                        <Font name="Palatino Linotype" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="44.0" fitWidth="53.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/money.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="93.0" layoutY="9.0" prefHeight="25.0" prefWidth="162.0" text="Fuse" textFill="#2d2d2d">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="993.0" layoutY="6.0" prefHeight="34.0" prefWidth="73.0" text="Admin" textFill="#2d2d2d">
+                     <font>
+                        <Font name="Palatino Linotype" size="20.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="header" fill="WHITE" height="40.0" layoutY="42.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1080.0" />
+                  <Label layoutX="58.0" layoutY="50.0" prefHeight="25.0" prefWidth="162.0" text="MENU">
+                     <font>
+                        <Font name="Verdana" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="20.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/Menu.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="1010.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/profile.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane prefHeight="439.0" prefWidth="335.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="227.0" layoutY="54.0" />
+                  <Pane layoutX="-735.0" layoutY="13.0" prefHeight="417.0" prefWidth="1066.0" styleClass="rectang" stylesheets="@dashboard.css">
+                     <children>
+                        <TableView fx:id="empTable" editable="true" fixedCellSize="0.0" layoutX="739.0" layoutY="8.0" prefHeight="402.0" prefWidth="313.0" stylesheets="@dashboard.css">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="42.0" text="ID" />
+                            <TableColumn fx:id="fname" prefWidth="86.0" text="First Name" />
+                              <TableColumn fx:id="lname" minWidth="0.0" text="Last Name" />
+                              <TableColumn fx:id="dept" prefWidth="97.0" text="Department" />
+                          </columns>
+                        </TableView>
+                        <AnchorPane layoutX="-20.0" layoutY="-29.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@dashboard.css" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </right>
+         <bottom>
+            <AnchorPane prefHeight="200.0" prefWidth="1351.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="16.0" prefHeight="190.0" prefWidth="1059.0" styleClass="rectang">
+                     <children>
+                        <TableView layoutX="9.0" layoutY="8.0" prefHeight="175.0" prefWidth="849.0">
+                          <columns>
+                            <TableColumn prefWidth="72.0" text="Report ID" />
+                            <TableColumn prefWidth="87.0" text="Employee ID" />
+                              <TableColumn prefWidth="66.0" text="Month" />
+                              <TableColumn prefWidth="75.0" text="Year" />
+                              <TableColumn prefWidth="117.0" text="Total Deductions" />
+                              <TableColumn prefWidth="96.0" text="Overtime Pay" />
+                              <TableColumn prefWidth="61.0" text="Net Pay" />
+                              <TableColumn prefWidth="94.0" text="Status" />
+                              <TableColumn prefWidth="179.0" text="Date Generated" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <AnchorPane layoutX="880.0" layoutY="86.0" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

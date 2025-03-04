@@ -1,0 +1,130 @@
+.root {
+   
+}
+
+/*#img1{
+      Soft pink gradient background 
+    -fx-background-image: url("imgs/image.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}*/
+
+/*#PaneReg{
+    
+     -fx-background-color: linear-gradient( to right top, #B1C29E, #FCE7C8);
+
+    
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+    
+}*/
+
+
+#Apane1{
+     
+/*    -fx-background-color: linear-gradient( to right top,#FCE7C8, #B1C29E);*/
+
+    -fx-background-color: linear-gradient(to bottom, #a8bfa4, #7c8c74); /* Slightly darker */
+    
+}
+
+#btnlog {
+    -fx-background-color: linear-gradient(to bottom, #ffe5c2, #e6c29a);
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5c3d2e;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.2, 2, 2);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+#btnlog:hover {
+    -fx-background-color: #e5d0b5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 6, 0.3, 2, 2);
+    -fx-translate-y: -2px; /* Slight lift effect */
+}
+
+#btnlog:pressed {
+    -fx-background-color: #d1b99f;
+    -fx-effect: none;
+    -fx-translate-y: 1px; /* Press down effect */
+}
+
+
+
+#Title{
+     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0.5, 5, 5);
+}
+
+
+
+#UNField {
+    
+  -fx-background-color: transparent;
+    -fx-border-color: rgba(0, 0, 0, 0.3); /* Softer border */
+    -fx-border-width: 1;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+    
+    
+}
+
+
+#PassField {
+     -fx-background-color: transparent;
+    -fx-border-color: rgba(0, 0, 0, 0.3); /* Softer border */
+    -fx-border-width: 1;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+}
+
+
+
+
+#rectangle{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 0, 2); 
+    -fx-arc-width: 50; 
+    -fx-arc-height: 0; 
+}
+
+#Mbtn1{
+  
+     -fx-background-color: linear-gradient( to right top,#FCE7C8, #B1C29E);
+    
+}
+
+#btnreg {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+#btnreg:hover {
+    -fx-text-fill: #ff9900;
+    -fx-underline: true;
+}
+
+
+/* Click (Pressed) Effect */
+#btnreg:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Rectangle Styling */
+#rectangleReg {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.4, 0, 2); 
+    -fx-arc-width: 30; 
+    -fx-arc-height: 30;
+}
+
+
+#reclog{
+     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.3, 0, 2);
+}

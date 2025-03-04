@@ -1,0 +1,330 @@
+.root{
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: 'Poppins', sans-serif;
+}
+
+
+.header-title {
+   -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C1D0F; /* Dark brown for better contrast */
+}
+
+
+
+#header{
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.3) , 4, 0 , 0 , 4 ); /* Shadow effect 4 00 4*/ 
+    -fx-background-color: #2C4A29; 
+    -fx-padding: 10 20 10 20; 
+    -fx-alignment: center-left; 
+    -fx-background-radius: 0;
+}
+
+.card{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+      -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);
+}
+
+
+.rectang{
+   -fx-background-color: #e0d5b8; 
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 2, 2);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+.table-view {
+    -fx-background-color: #f5e6c6; /* Light beige */
+    -fx-border-color: #a89574; /* Soft brown border */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 5px;
+}
+
+.table-column {
+    -fx-alignment: CENTER-LEFT;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a3f2d; /* Dark brown text */
+}
+
+.table-row-cell {
+    -fx-background-color: #fdf7e3; /* Light cream row */
+    -fx-border-color: transparent transparent #c8b89c transparent; /* Row divider */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f3e7d0; /* Slightly darker alternating row */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #d1c1a0; /* Soft highlight for selection */
+    -fx-text-fill: black;
+}
+
+.table-header-background {
+    -fx-background-color:  #2C4A29; 
+    -fx-border-radius: 8px 8px 0 0;
+}
+
+.table-header-background {
+    -fx-background-color: #5a4a38; /* Darker brown to contrast */
+    -fx-border-radius: 8px 8px 0 0;
+}
+
+
+.table-column-header .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+}
+
+.table-column-header {
+    -fx-background-color: linear-gradient(to bottom, #6e5a44, #5a4a38); /* Dark brown gradient */
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 8px 8px 0 0;
+}
+/* Always show horizontal scrollbar */
+.scroll-pane {
+    -fx-hbar-policy: ALWAYS;
+    -fx-vbar-policy: AS_NEEDED;
+}
+
+/* Customizing the horizontal scrollbar */
+.scroll-bar:horizontal {
+    -fx-background-color: #EDE0C8; /* Light beige background */
+    -fx-pref-height: 12px; /* Adjust height */
+}
+
+/* Thumb (movable part) */
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #FFFFFF; /* White */
+    -fx-background-radius: 5px;
+    -fx-pref-height: 10px;
+}
+
+/* Track (the background of scrollbar) */
+.scroll-bar:horizontal .track {
+    -fx-background-color: #D2B48C; /* Soft tan color */
+    -fx-background-radius: 5px;
+}
+
+/* Buttons on both sides of scrollbar */
+.scroll-bar:horizontal .increment-button,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color: #E5D5BA; /* Light beige/tan */
+    -fx-background-radius: 5px;
+}
+
+/* Buttons when hovered */
+.scroll-bar:horizontal .increment-button:hover,
+.scroll-bar:horizontal .decrement-button:hover {
+    -fx-background-color: #CBBFA4; /* Slightly darker beige */
+}
+
+/* Arrows inside scrollbar buttons */
+.scroll-bar:horizontal .increment-arrow,
+.scroll-bar:horizontal .decrement-arrow {
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Custom arrow shape */
+    -fx-background-color: #6D5D4B; /* Dark brown for contrast */
+}
+
+
+.tab{
+    -fx-pref-width: 350;
+    -fx-pref-height: 350;
+}
+
+.custompane{
+    -fx-background-color: #D4B88E;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.3) , 4, 0 , 0 , 4 ); 
+     -fx-border-color: #8B5A2B; /* Darker brown */
+       -fx-border-width: 2px 0 0 0; 
+}
+
+.cardlabel{
+    -fx-font-family: 'Poppins', sans-serif; 
+    
+    -fx-font-size: 14px; 
+    -fx-font-weight: 500;
+    -fx-text-fill: #333333; 
+    -fx-padding: 5px 10px; 
+}
+
+.count-label {
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #4A4A4A; 
+}
+.count-amount {
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size: 42px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1F1F1F; /* Deep black for emphasis */
+}
+
+.header{
+    -fx-background-color: #b1c29e;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.3) , 4, 0 , 0 , 4 ); 
+       -fx-border-width: 3px 0 0 0; 
+}
+
+
+/* 🔹 Common Base Style for Both ComboBoxes */
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #111111;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2A2A2A;
+    -fx-text-alignment: center; 
+}
+
+/* 🔹 Short ComboBox */
+.combo-box-short {
+    -fx-pref-width: 160px;  /* Shorter width */
+    -fx-pref-height: 24px;  /* Shorter height */
+    -fx-padding: 2px 8px;
+}
+
+/* 🔹 Long ComboBox */
+.combo-box-long {
+    -fx-pref-width: 210;  /* Longer width */
+    -fx-pref-height: 24px;  /* Same height as short */
+    -fx-padding: 2px 8px;
+}
+
+/* 🔹 Inner TextField Styling */
+.combo-box .text-field {
+   -fx-text-alignment: center; 
+    -fx-content-display: center;
+    -fx-background-color: transparent;
+    -fx-text-fill: #2A2A2A;
+    -fx-font-size: 13px;
+    
+}
+
+/* 🔹 Dropdown Button */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5px;
+}
+
+/* 🔹 Dropdown Popup */
+.combo-box-popup .list-view {
+    -fx-background-color: rgba(196, 154, 108, 0.9);
+    -fx-border-color: #C49A6C;
+    -fx-border-radius: 6px;
+}
+
+/* 🔹 Dropdown List Items */
+.combo-box-popup .list-cell {
+    -fx-text-alignment: center; 
+    -fx-background-color: transparent;
+    -fx-text-fill: #2A2A2A;
+    -fx-padding: 4px 12px;
+    -fx-font-size: 13px;
+}
+
+/* 🔹 Hover Effect */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: rgba(180, 130, 90, 0.5);
+}
+
+/* 🔹 Selected Item */
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: rgba(160, 110, 70, 0.7);
+}
+
+.month-label { /* Assuming you have a class for the month label */
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size: 16px; /* Increased font size */
+    -fx-font-weight: 500;
+    -fx-text-fill: #333333; /* Darker color for better contrast */
+}
+
+.unique-pane {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333; /* Dark gray text */
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+ 
+    
+    -fx-border-radius: 5px;
+}
+
+.unique-pane:hover {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #d0d0d0); 
+}
+
+.unique-pane:pressed {
+    -fx-background-color: linear-gradient(to bottom, #d0d0d0, #c0c0c0); 
+}
+
+.unique-pane.graphic { 
+    -fx-fit-height: 20px; 
+    -fx-preserve-ratio: true;
+}
+
+
+
+.date-range{
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 5px; 
+}
+
+.salary-amount {
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-size: 30px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1F1F1F; /* Deep black for emphasis */
+}
+/* Navigation Bar Container */
+.nav-bar {
+    -fx-background-color: #b1c29e; /* Light green background */
+    
+    -fx-alignment: center; /* Center buttons horizontally */
+    -fx-spacing: 10px; 
+}
+
+/* Navigation Button */
+.nav-bar-button {
+    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #e0e0e0); /* Subtle gradient */
+    -fx-text-fill: #333333; /* Dark gray text */
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-color: transparent; /* Hide border by default */
+    -fx-border-width: 0 0 2px 0; /* Show only bottom border for active state */
+}
+
+.button {
+    -fx-font-family: 'Roboto Bold';
+    -fx-text-fill: Black;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px
+}
+.button:hover {
+        
+        -fx-background-color: #6f4e37; 
+         -fx-text-fill: white;
+        -fx-cursor: hand; 
+}
+
+/* Navigation Button Active */
+.nav-button.active {
+    -fx-background-color: #7a5f3e; /* Darker beige coffee color */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: #7a5f3e; /* Set border color to match active state */
+}

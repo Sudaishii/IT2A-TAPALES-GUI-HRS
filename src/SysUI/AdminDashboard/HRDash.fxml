@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="644.0" prefWidth="1080.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+   <children>
+      <Pane prefHeight="644.0" prefWidth="1080.0" stylesheets="@dashboard.css">
+         <children>
+            <Pane prefHeight="179.0" prefWidth="1080.0" styleClass="custompane">
+               <children>
+                  <Label layoutX="83.0" layoutY="14.0" styleClass="date-range" stylesheets="@dashboard.css" text="TOTAL SALARY">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="payment" layoutX="89.0" layoutY="30.0" prefHeight="62.0" prefWidth="246.0" styleClass="salary-amount" stylesheets="@dashboard.css" text="0">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="deptcombo" layoutX="593.0" layoutY="44.0" prefHeight="33.0" prefWidth="219.0" styleClass="combo-box-long" stylesheets="@dashboard.css" />
+                  <Label fx:id="date" layoutX="308.0" layoutY="48.0" prefHeight="26.0" prefWidth="273.0" styleClass="date-range" text="DATE" />
+                  <ComboBox fx:id="monthCombo" layoutX="830.0" layoutY="44.0" prefHeight="33.0" prefWidth="188.0" styleClass="combo-box-short" stylesheets="@dashboard.css" />
+                  <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="599.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/icons8-person-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="836.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/icons8-calendar-50.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <AnchorPane layoutX="801.0" layoutY="99.0" prefHeight="133.0" prefWidth="186.0" styleClass="card" stylesheets="@dashboard.css">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/icons8-contribution-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="7.0" layoutY="52.0" prefHeight="30.0" prefWidth="143.0" styleClass="cardlabel" text="Total Contributions" />
+                  <Label fx:id="contributions" layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="106.0" styleClass="salary-amount" stylesheets="@dashboard.css" text="0">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="322.0" layoutY="99.0" prefHeight="133.0" prefWidth="186.0" styleClass="card" stylesheets="@dashboard.css">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/icons8-salary-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="6.0" layoutY="52.0" prefHeight="30.0" prefWidth="123.0" styleClass="cardlabel" text="Total Net Pay" />
+                  <Label fx:id="npay" layoutX="15.0" layoutY="74.0" prefHeight="45.0" prefWidth="163.0" styleClass="salary-amount" stylesheets="@dashboard.css" text="0">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TableView layoutX="90.0" layoutY="264.0" prefHeight="369.0" prefWidth="888.0">
+               <columns>
+                  <TableColumn prefWidth="82.0" text="REPORT ID" />
+                  <TableColumn prefWidth="106.0" text="ID" />
+                  <TableColumn prefWidth="106.0" text="FIRST NAME" />
+                  <TableColumn prefWidth="106.0" text="LAST NAME" />
+                  <TableColumn prefWidth="169.0" text="DEPARTMENT" />
+                  <TableColumn prefWidth="169.0" text="TOTAL CONTRIBUTION" />
+                  <TableColumn prefWidth="169.0" text="STATUS" />
+               </columns>
+            </TableView>
+            <AnchorPane layoutX="83.0" layoutY="99.0" prefHeight="133.0" prefWidth="186.0" styleClass="card" stylesheets="@dashboard.css">
+               <children>
+                  <ImageView fx:id="tEmp" fitHeight="37.0" fitWidth="41.0" layoutX="17.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="clip">
+                     <image>
+                        <Image url="@../../imgs/icons8-employees.gif" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="6.0" layoutY="56.0" prefHeight="30.0" prefWidth="123.0" styleClass="cardlabel" text="Total Employees" />
+                  <Label fx:id="TotalEmp" layoutX="17.0" layoutY="74.0" prefHeight="37.0" prefWidth="106.0" styleClass="salary-amount" stylesheets="@dashboard.css" text="0">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="562.0" layoutY="99.0" prefHeight="133.0" prefWidth="186.0" styleClass="card" stylesheets="@dashboard.css">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/icons8-payment-48.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="9.0" layoutY="52.0" prefHeight="30.0" prefWidth="138.0" styleClass="cardlabel" text="Total Gross Salary" />
+                  <Label fx:id="grss" layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="106.0" styleClass="salary-amount" stylesheets="@dashboard.css" text="0">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

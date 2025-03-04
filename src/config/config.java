@@ -5,6 +5,7 @@
  */
 package config;
 
+import javafx.animation.FadeTransition;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,9 +13,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 /**
  *
@@ -31,7 +39,7 @@ public class config {
 
 
     DialogPane dialogPane = alert.getDialogPane();
-    dialogPane.getStylesheets().add(getClass().getResource("/registration/registration.css").toExternalForm());
+    dialogPane.getStylesheets().add(getClass().getResource("/SysUI/Registration/registration.css").toExternalForm());
     dialogPane.getStyleClass().add("alert");
 
 
@@ -68,7 +76,42 @@ public class config {
         stage.centerOnScreen();
         stage.show();
     }
+     
+     
+     public void fadeIn(Node node) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(100));
+        fadeTransition.setNode(node);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
+    }
+    
+    public void fadeOut(Node node) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(100));
+        fadeTransition.setNode(node);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+    }
+    
+    public void setSelected(String imageLocation, Label label, Line line, ImageView icon) {
+        Image newImage = new Image(imageLocation);
+        label.setTextFill(Color.web("#2f9efe"));
+        line.setOpacity(1);
+        icon.setImage(newImage);
+    }
+    
+    public void setUnselected(String imageLocation, Label label, Line line, ImageView icon) {
+        Image newImage = new Image(imageLocation);
+        label.setTextFill(Color.web("#a5b4d9"));
+        line.setOpacity(0);
+        icon.setImage(newImage);
+    }
 
+  
+    
    
     
 }
