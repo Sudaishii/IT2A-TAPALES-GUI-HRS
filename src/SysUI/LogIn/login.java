@@ -5,6 +5,8 @@
  */
 package SysUI.LogIn;
 
+import SysUI.AdminDashboard.FXMLController;
+
 import java.awt.Color;
 import java.awt.Paint;
 import javafx.application.Application;
@@ -36,12 +38,11 @@ public class login extends Application {
             launch(args);
     }
         
+        FXMLController main = FXMLController.getInstance();
     
 
-    @Override
+    @Override   
     public void start(Stage stage) throws Exception {
-        
-       
         
        Parent root = FXMLLoader.load(getClass().getResource("/SysUI/LogIn/main.fxml"));
        Scene scene = new Scene(root);

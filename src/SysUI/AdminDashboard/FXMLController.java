@@ -34,6 +34,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
@@ -56,66 +57,28 @@ import javafx.stage.Stage;
  */
 public class FXMLController implements Initializable {
     
-    
-    @FXML
-    private Label payment;
-    
-    @FXML
-    private Label date;
-    
-    @FXML
-    private Label npay;
-    
-    @FXML
-    private Label contributions;
-    
-    @FXML
-    private Label grss;
+    private static FXMLController instance;
     
     @FXML 
     private Pane header1;
     
-    @FXML
-    private ComboBox<String> deptcombo;
-    
-    @FXML
-    private ComboBox<String> monthCombo;
-    
-    @FXML
-    private Label TotalEmp;
-    
-    @FXML
-    private Pane dashButton;
-    
-    @FXML
-    private Pane empButton;
-    
-    @FXML
-    private ImageView tEmp;
-    
-    @FXML
-    private BorderPane rootpane;
-    
-    @FXML
-    private AnchorPane backgroundpane;
-    
-    @FXML 
-    private Label greetLabel;
-    
-    @FXML
     private TableView <employees> empTable;
     
-     @FXML
     private TableColumn<employees, Integer> id;
     
-    @FXML
     private TableColumn<employees, String> fname;
     
-    @FXML
     private TableColumn<employees, String> lname;
     
-    @FXML
     private TableColumn<employees, String> dept;
+    @FXML
+    private Button employeesButton;
+    @FXML
+    private BorderPane rootPane;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Button dashboardButton;
     
     
     
@@ -126,7 +89,8 @@ public class FXMLController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)  {
+        /*
         
         
         empList = FXCollections.observableArrayList();
@@ -195,11 +159,25 @@ public class FXMLController implements Initializable {
         updateNetPay();
         CountEmployees();
 //         loadPage("/SysUI/AdminDashboard/HRDash.fxml");
+*/
+        instance = this;
     }
       
      private dbConnect db = new dbConnect();
      private ObservableList<employees> empList;
      
+     private void loadDashboard() {
+         try{
+             Parent root = FXMLLoader.load(getClass().getResource("/SysUI/AdminDashboard/FXML.fxml"));
+            rootPane.setCenter(root);
+         } catch (Exception e) {
+             System.out.println(e);
+         }
+     }
+     
+     public static FXMLController getInstance() {
+         return instance;
+     }
      
          private void loadDataFromDatabase() {
          if (db == null) {
@@ -231,6 +209,7 @@ public class FXMLController implements Initializable {
         }
     }
     
+         /*
          private void CountEmployees() {
         String query = "SELECT COUNT(*) AS total FROM employee";
 
@@ -282,25 +261,28 @@ public class FXMLController implements Initializable {
             System.err.println("Error calculating netpay sum: " + e.getMessage());
             npay.setText("Error");
         }
+        
     }
-    
+    */
         
     public void loadPage(String targetFXML) {
-    
-         Stage currentStage = (Stage) backgroundpane.getScene().getWindow();   
+         Stage currentStage = (Stage) anchorPane.getScene().getWindow();   
         try{
             Parent root = FXMLLoader.load(getClass().getResource(targetFXML));
-            rootpane.setCenter(root);
+            rootPane.setCenter(root);
         } catch (Exception e) {
             System.out.println(e);
-            
-        }
-        
+        } 
     }
 
     @FXML
-    private void dashboard(javafx.scene.input.MouseEvent event) throws IOException {
-         
+    private void employeesButtonMouseClickHandler(javafx.scene.input.MouseEvent event) {
+         loadPage("/SysUI/AdminDashboard/Employees.fxml");
+    }
+
+    @FXML
+    private void dashboardButtonMouseClickHandler(javafx.scene.input.MouseEvent event) {
+        loadPage("/SysUI/AdminDashboard/HRDash.fxml");
     }
 } 
       

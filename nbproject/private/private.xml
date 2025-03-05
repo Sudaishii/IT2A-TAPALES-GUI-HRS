@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/LogIn/main.fxml</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/AdminDashboard/FXML.fxml</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/LogIn/login.java</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/AdminDashboard/FXMLController.java</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/LogIn/controller.java</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/LogIn/application.css</file>
-            <file>file:/D:/College/TAPALES-GUI/src/config/Session.java</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/AdminDashboard/dashboard.css</file>
-            <file>file:/D:/College/TAPALES-GUI/src/SysUI/AdminDashboard/dash_controller.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/AdminDashboard/Employees.fxml</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/AdminDashboard/FXMLController.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/AdminDashboard/EmployeesController.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/config/users.sql</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/LogIn/controller.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/LogIn/login.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/LogIn/main.fxml</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/SysUI/AdminDashboard/employees.java</file>
+            <file>file:/C:/Users/SCC8/Documents/IT2A-TAPALES-GUI-HRS/src/config/config.java</file>
         </group>
     </open-files>
 </project-private>
